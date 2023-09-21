@@ -1,0 +1,67 @@
+worked with Alyssa Martinez and we used chatGPT
+
+using System;
+
+class Program
+{
+    static int FindLargest(int num1, int num2)
+    {
+        return num1 > num2 ? num1 : num2;
+    }
+
+    static void Main()
+    {
+        int a = 3;
+        int b = 5;
+
+        int largestNumber = FindLargest(a, b);
+
+        Console.WriteLine($"The largest number is: {largest number }");
+    }
+}
+
+question 2
+
+using System;
+
+class Program
+{
+    static void PrintLeftSideTriangle(int N)
+    {
+        if (N < 1)
+        {
+            Console.WriteLine("N must be a positive integer.");
+            return;
+        }
+
+        Console.WriteLine($"N = {N} and Shape = 'left'");
+
+        for (int i = 1; i <= N; i++)
+        {
+            for (int j = 1; j <= i; j++)
+            {
+                Console.Write("*");
+            }
+            Console.WriteLine();
+        }
+    }
+
+    static void Main()
+    {
+        int N = 5;
+        string shape = "left"; // You can change this to "right" if needed.
+
+        if (shape == "left")
+        {
+            PrintLeftSideTriangle(N);
+        }
+        else
+        {
+            Console.WriteLine("Invalid shape. Please choose 'left' for this example.");
+        }
+    }
+}
+
+
+
+
