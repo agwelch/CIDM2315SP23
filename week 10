@@ -1,0 +1,64 @@
+Used AI
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public class Student
+{
+    private int studentID;
+    private string studentName;
+    public static List<Student> studentList = new List<Student>();
+
+    public Student(int id, string name)
+    {
+        this.studentID = id;
+        this.studentName = name;
+        studentList.Add(this);
+    }
+
+    public void PrintInfo()
+    {
+        Console.WriteLine("Student ID: " + this.studentID + ", Student Name: " + this.studentName);
+    }
+}
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        // Create 4 students
+        new Student(111, "Alice");
+        new Student(222, "Bob");
+        new Student(333, "Cathy");
+        new Student(444, "David");
+
+        // Create a Dictionary named gradebook
+        Dictionary<string, double> gradebook = new Dictionary<string, double>()
+        {
+            {"Alice", 4.0},
+            {"Bob", 3.6},
+            {"Cathy", 2.5},
+            {"David", 1.8}
+        };
+
+        // Check if "Tom" has a record in gradebook
+        if (!gradebook.ContainsKey("Tom"))
+        {
+            gradebook.Add("Tom", 3.3);
+        }
+
+        // Calculate the average GPA of all students
+        double averageGPA = gradebook.Values.Average();
+        Console.WriteLine("Average GPA: " + averageGPA);
+
+        // Print out information about students whose GPA is greater than the average GPA
+        foreach (var student in Student.studentList)
+        {
+            if (gradebook[student.studentName] > averageGPA)
+            {
+                student.PrintInfo();
+            }
+        }
+    }
+}
